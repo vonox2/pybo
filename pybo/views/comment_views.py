@@ -82,8 +82,8 @@ def comment_create_answer(request, answer_id):
             comment.create_date = timezone.now()
             comment.answer = answer
             comment.save()
-            return redirect('{}#comment_{}'.format(
-                resolve_url('pybo:detail', question_id=comment.question.id), comment.id))
+            return redirect('{}#answer_{}'.format(
+                resolve_url('pybo:detail', question_id=answer.question.id), answer.id))
     else:
         form = CommentForm()
     context = {'form': form}
